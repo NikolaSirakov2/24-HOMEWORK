@@ -33,9 +33,9 @@ class ViewController {
         });
 
         switch(hash){
-            // case 'home':
-            //     this.renderHomePage();
-            //     break;
+            case 'home':
+                this.renderHomePage();
+                break;
             case 'user':
                 this.renderUserPage();
                 break;
@@ -44,6 +44,12 @@ class ViewController {
 
     renderUserPage = () => {
         let register = document.getElementById('registerForm');
+
+        if(localStorage.loged !== undefined){
+        let logedUser = JSON.parse(localStorage.getItem("loged"));
+        let headerUserSign = document.getElementById("userLink");
+        headerUserSign.innerText = logedUser[0].name;
+        }
 
         register.onsubmit = (e) => {
             e.preventDefault();
@@ -74,6 +80,13 @@ class ViewController {
         let logOut = document.getElementById('logoutButt');
 
         logOut.addEventListener('click', this.userManager.logOut);
+    }
+
+    renderHomePage = () => {
+
+        let logedUser = JSON.parse(localStorage.getItem("loged"));
+        let headerUserSign = document.getElementById("userLink");
+        headerUserSign.innerText = logedUser[0].name;
     }
 }
 
