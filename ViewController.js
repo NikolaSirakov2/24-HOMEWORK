@@ -52,7 +52,10 @@ class ViewController {
             let confirm = e.target.elements.confirm.value.trim();
 
             this.userManager.createUser(username, pass, confirm);
-            
+
+            e.target.elements.username.value = "";
+            e.target.elements.pass.value = "";
+            e.target.elements.confirm.value = "";
         }
 
         let form = document.getElementById('loginForm');
@@ -63,6 +66,9 @@ class ViewController {
             let pass = e.target.elements.pass.value.trim();
             
             this.userManager.logIn(username, pass);
+
+            e.target.elements.username.value = "";
+            e.target.elements.pass.value = "";
         }
 
         let logOut = document.getElementById('logoutButt');
