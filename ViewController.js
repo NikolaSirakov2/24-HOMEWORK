@@ -87,6 +87,9 @@ class ViewController {
         let logedUser = JSON.parse(localStorage.getItem("loged"));
         let headerUserSign = document.getElementById("userLink");
         headerUserSign.innerText = logedUser[0].name;
+        let clientName = document.getElementById('borrowerName');
+        clientName.placeholder = logedUser[0].name
+       
     }
 }
 
