@@ -4,6 +4,7 @@ class ViewController {
         window.addEventListener('hashchange', this.handleHashChange);
     
         this.userManager = new UserManager();
+        this.applicationManager = new ApplicationManager();
     }
 
     handleHashChange = () => {
@@ -11,7 +12,7 @@ class ViewController {
 
         let hash = window.location.hash.slice(1) || "home";
 
-        let pageIds = ["home", "user"];
+        let pageIds = ["home", "user", "applications"];
 
         
             if(hash === "home"){
@@ -39,6 +40,9 @@ class ViewController {
             case 'user':
                 this.renderUserPage();
                 break;
+            case 'applications':
+                this.renderapplicationOverview();
+                break; 
         }
     }
 
@@ -89,7 +93,35 @@ class ViewController {
         headerUserSign.innerText = logedUser[0].name;
         let clientName = document.getElementById('borrowerName');
         clientName.placeholder = logedUser[0].name
-       
+
+        let applicationForm = document.getElementById('applicationForm');
+        let id = 1;
+     
+        applicationForm.onsubmit = (e) => {
+            e.preventDefault();
+            console.log(id);
+            let name = logedUser[0].name;
+            let income = e.target.elements.income.value;
+            let amount = e.target.elements.amount.value;
+            let period = e.target.elements.period.value;
+
+            this.applicationManager.createApplication(id, name, income, amount, period);
+
+            e.target.elements.income.value = "";
+            e.target.elements.amount.value = "";
+            e.target.elements.period.value = "";
+
+            window.location.hash = "applications";
+            id++;
+        }
+    }
+
+    renderapplicationOverview = () => {
+        let allAplications = JSON.parse(localStorage.applicationsList);
+
+        allAplications.forEach(application => {
+            console.log(application.name);
+        });
     }
 }
 
