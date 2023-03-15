@@ -1,0 +1,7 @@
+#home {
+    background-color: bisque;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
