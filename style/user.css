@@ -1,0 +1,48 @@
+#user {
+    background-color: rgb(225, 193, 152);
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#login {
+    height: 30vh;
+    background-color: rgb(112, 146, 135);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#register {
+    height: 30vh;
+    background-color: rgb(129, 173, 206);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.popUp {
+    background-color: aliceblue;
+    position: absolute;
+    height: 80px;
+    border-radius: 6px;
+    text-align: center;
+    padding: 20px;
+    display: none;
+}
+
+.popUp button {
+   margin: 20px;
+   height: 30px;
+   width: 100px;
+   background-color: tomato;
+   color: antiquewhite;
+   cursor: pointer;
+}
