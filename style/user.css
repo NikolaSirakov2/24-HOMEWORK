@@ -6,7 +6,7 @@
 }
 
 #login {
-    height: 30vh;
+    height: 50vh;
     background-color: rgb(112, 146, 135);
     display: flex;
     justify-content: center;
@@ -15,7 +15,7 @@
 }
 
 #register {
-    height: 30vh;
+    height: 50vh;
     background-color: rgb(129, 173, 206);
     display: flex;
     justify-content: center;
@@ -28,10 +28,19 @@ form {
     flex-direction: column;
 }
 
+input {
+    border: 1px;
+    border-radius: 15%;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+}
+
 .popUp {
     background-color: aliceblue;
     position: absolute;
-    height: 80px;
+    height: 180px;
+    width: 300px;
     border-radius: 6px;
     text-align: center;
     padding: 20px;
