@@ -5,3 +5,21 @@
     flex-direction: column;
     overflow: auto;
 }
+
+table, th, td {
+    border:1px solid black;
+  }
+
+  table th {
+    background-color: rgb(236, 70, 70);
+    height: 40px;
+    justify-content: center;
+    font-size: xx-large;
+  }
+
+  table td {
+    height: 20px;
+    width: 10px;
+    background-color: rgb(183, 195, 206);
+    text-align: center;
+  }
