@@ -5,3 +5,12 @@
     flex-direction: column;
     overflow: auto;
 }
+
+#application {
+    height: 100vh;
+    background-color: rgb(216, 236, 141);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
