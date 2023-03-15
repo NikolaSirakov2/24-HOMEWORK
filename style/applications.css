@@ -1,0 +1,7 @@
+#applications {
+    background-color: rgb(207, 200, 190);
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
