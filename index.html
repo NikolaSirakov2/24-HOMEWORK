@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="./style/home.css">
     <link rel="stylesheet" href="./style/user.css">
 
-    <script src="./model/PopUpManager.js"></script>
-    <script src="./model/UserManager.js"></script>
+    
     
   </head>
 
@@ -24,17 +23,14 @@
     </header>
 
     <main>
-        <div id="home"></div>
+        <div id="home">
+            
+        </div>
         <div id="user">
             <div id="login">
                 <form id="loginForm">
-                  <input
-                    name="username"
-                    type="text"
-                    placeholder="username"
-                    required
-                  />
-                  <input name="pass" type="text" placeholder="password" required />
+                  <input name="username" type="text" placeholder="username" required />
+                  <input name="pass" type="password" placeholder="password" required />
                   <input type="submit" value="Login" id="loginButt" />
                   <input type="button" value="LogOut" id="logoutButt" />
                 </form>
@@ -47,8 +43,8 @@
               <div id="register">
                   <form id="registerForm">
                       <input name="username" type="text" placeholder="username" required>
-                      <input name="pass" type="text" placeholder="password" required>
-                      <input name="confirm" type="text" placeholder="confirm password" required>
+                      <input name="pass" type="password" placeholder="password" required>
+                      <input name="confirm" type="password" placeholder="confirm password" required>
                       <input type="submit" value="Register" id="registerButt">
                   </form>
                   <div class="popUp" id="registrationPopUp">
@@ -61,6 +57,8 @@
 
     <footer>&copy; NIKOLA SIRAKOV 2023</footer>
 
+    <script src="./model/PopUpManager.js"></script>
+    <script src="./model/UserManager.js"></script>
     <script src="./ViewController.js"></script>
   </body>
 </html>
