@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./style/loginPage.css" />
     <link rel="stylesheet" href="./style/home.css">
     <link rel="stylesheet" href="./style/user.css">
+    <link rel="stylesheet" href="./style/applications.css">
 
     
     
@@ -26,10 +27,11 @@
         <div id="home">
             <div id="application">
                 <form id="applicationForm">
-                    <input type="text" id="borrowerName" disabled>
-                    <input type="number" id="borrowerIncome" placeholder="montly income" min="200">
-                    <input type="number" id="requestedAmount" placeholder="requested amount" min="1000">
-                    <input type="number" id="requestedTerm" placeholder="period" min="6">
+                    <input type="text" name="name" id="borrowerName" disabled style="font-size: xx-large;">
+                    <input type="number" name="income" id="borrowerIncome" placeholder="montly income" min="200" required>
+                    <input type="number" name="amount" id="requestedAmount" placeholder="requested amount" min="1000" required>
+                    <input type="number" name="period" id="requestedTerm" placeholder="period" min="6" required>
+                    <input type="submit" value="apply" id="applyButt" />
                 </form>
             </div>
         </div>  
@@ -60,10 +62,14 @@
                   </div>
               </div>
         </div>
+        <div id="applications">
+
+        </div>
     </main>
 
     <footer>&copy; NIKOLA SIRAKOV 2023</footer>
 
+    <script src="./model/ApplicationManager.js"></script>
     <script src="./model/PopUpManager.js"></script>
     <script src="./model/UserManager.js"></script>
     <script src="./ViewController.js"></script>
