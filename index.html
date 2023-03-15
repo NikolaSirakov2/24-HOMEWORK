@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Loan-giving Platform</title>
-    <link rel="stylesheet" href="./style/reset.css">
-    <link rel="stylesheet" href="./style/loginPage.css">
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="./style/reset.css" />
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/loginPage.css" />
+    <link rel="stylesheet" href="./style/home.css">
+    <link rel="stylesheet" href="./style/user.css">
+
+    <script src="./model/UserManager.js"></script>
+    <script src="./model/PopUpManager.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <img width="90" src="./images/logo.jpg" alt="logo" />
+      <a href="#home">HOME</a>
+      <a href="#user" id="userLink">USER</a>
+    </header>
+
+    <main>
+        <div id="home"></div>
+        <div id="user">
+            <div id="login">
+                <form id="loginForm">
+                  <input
+                    name="username"
+                    type="text"
+                    placeholder="username"
+                    required
+                  />
+                  <input name="pass" type="text" placeholder="password" required />
+                  <input type="submit" value="Login" id="loginButt" />
+                  <input type="button" value="LogOut" id="logoutButt" />
+                </form>
+                <div class="popUp" id="loginPopUp">
+                  <h2>WRONG NAME OR PASSWORD</h2>
+                  <button type="button" onclick="closePopUp()">OK</button>
+              </div>
+              </div>
+      
+              <div id="register">
+                  <form id="registerForm">
+                      <input name="username" type="text" placeholder="username" required>
+                      <input name="pass" type="text" placeholder="password" required>
+                      <input name="confirm" type="text" placeholder="confirm password" required>
+                      <input type="submit" value="Register" id="registerButt">
+                  </form>
+                  <div class="popUp" id="registrationPopUp">
+                      <h2 id="regPopUp">THIS USER NAME IS ALREADY TAKEN</h2>
+                      <button type="button" onclick="closeRegPopUp()">OK</button>
+                  </div>
+              </div>
+        </div>
+    </main>
+
+    <footer>&copy; NIKOLA SIRAKOV 2023</footer>
+
+    <script src="./ViewController.js"></script>
+  </body>
 </html>
