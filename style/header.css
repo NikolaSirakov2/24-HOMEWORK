@@ -1,0 +1,28 @@
+header {
+    display: flex;
+    height: 10vh;
+    background-color: aquamarine;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 30px;
+}
+
+header img {
+    width: 128px;
+}
+
+header a {
+    margin-right: 30px;
+    text-decoration: none;
+}
+
+footer {
+    height: 5vh;
+    background-color: rgb(161, 160, 160);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bolder;
+}
