@@ -32,14 +32,42 @@ class ViewController {
             }
         });
 
-        // switch(hash){
-        //     case 'home':
-        //         this.renderHomePage();
-        //         break;
-        //     case 'user':
-        //         this.renderUserPage();
-        //         break;
-        // }
+        switch(hash){
+            // case 'home':
+            //     this.renderHomePage();
+            //     break;
+            case 'user':
+                this.renderUserPage();
+                break;
+        }
+    }
+
+    renderUserPage = () => {
+        let register = document.getElementById('registerForm');
+
+        register.onsubmit = (e) => {
+            e.preventDefault();
+            let username = e.target.elements.username.value.trim();
+            let pass = e.target.elements.pass.value.trim();
+            let confirm = e.target.elements.confirm.value.trim();
+
+            this.userManager.createUser(username, pass, confirm);
+            
+        }
+
+        let form = document.getElementById('loginForm');
+
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            let username = e.target.elements.username.value.trim();
+            let pass = e.target.elements.pass.value.trim();
+            
+            this.userManager.logIn(username, pass);
+        }
+
+        let logOut = document.getElementById('logoutButt');
+
+        logOut.addEventListener('click', this.userManager.logOut);
     }
 }
 
