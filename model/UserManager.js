@@ -22,9 +22,8 @@ class User {
   
       if (existingUser.length > 0) {
         this.logedUser = existingUser;
-        let headerUserSign = document.getElementById('userLink');
-        console.log(this.logedUser.name);
-        headerUserSign.innerText = this.logedUser.name;
+        let headerUserSign = document.getElementById('userLink'); 
+        headerUserSign.innerText = this.logedUser[0].name;
         localStorage.setItem("loged", JSON.stringify(this.logedUser));
         return true;
       }
@@ -34,6 +33,8 @@ class User {
   
     logOut = () => {
       localStorage.removeItem("loged");
+      let headerUserSign = document.getElementById('userLink'); 
+        headerUserSign.innerText = "User";
     };
   
     createUser = (name, pass, confirm) => {
