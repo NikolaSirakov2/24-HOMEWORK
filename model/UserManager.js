@@ -25,6 +25,8 @@ class User {
         let headerUserSign = document.getElementById('userLink'); 
         headerUserSign.innerText = this.logedUser[0].name;
         localStorage.setItem("loged", JSON.stringify(this.logedUser));
+        console.log(window.location.hash);
+        window.location.hash = "home";
         return true;
       }
   
