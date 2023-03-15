@@ -95,33 +95,62 @@ class ViewController {
         clientName.placeholder = logedUser[0].name
 
         let applicationForm = document.getElementById('applicationForm');
-        let id = 1;
+        
      
         applicationForm.onsubmit = (e) => {
-            e.preventDefault();
-            console.log(id);
+            e.preventDefault();  
             let name = logedUser[0].name;
             let income = e.target.elements.income.value;
             let amount = e.target.elements.amount.value;
             let period = e.target.elements.period.value;
 
-            this.applicationManager.createApplication(id, name, income, amount, period);
+            if(income > 200 && amount > 1000 && period > 6){
+            this.applicationManager.createApplication(name, income, amount, period);
+            }
 
             e.target.elements.income.value = "";
             e.target.elements.amount.value = "";
             e.target.elements.period.value = "";
 
             window.location.hash = "applications";
-            id++;
+            
         }
     }
 
     renderapplicationOverview = () => {
         let allAplications = JSON.parse(localStorage.applicationsList);
+        let table = document.getElementById("table");
+        table.innerHTML = "";
+        console.log(allAplications.length);
 
         allAplications.forEach(application => {
-            console.log(application.name);
-        });
+        
+            let newRow = document.createElement('tr')
+               
+                let id = document.createElement("td");
+                let requested = document.createElement('td');
+                let period = document.createElement('td');
+                let status = document.createElement('td');
+                let cancel = document.createElement('td')
+    
+                id.innerText = allAplications.length;
+                id.style.width = "4%"
+                requested.innerText = `${application.amount} $`;
+                requested.style.width = "29%"
+                period.innerText = `${application.period} months`;
+                period.style.width = "24%"
+                status.innerText = "Pending";
+                status.style.width = "10%"
+                cancel.innerText = "Cancel!";
+                cancel.style.width = "10%";
+                
+    
+                newRow.append(id, requested, period, status, cancel);
+    
+                table.appendChild(newRow);
+            })  
+        
+        
     }
 }
 
