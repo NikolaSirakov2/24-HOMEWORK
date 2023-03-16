@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="./style/user.css">
     <link rel="stylesheet" href="./style/applications.css">
     <link rel="stylesheet" href="./style/statistics.css">
-
+    <script src="./utils/createElemet.js"></script>
     
     
   </head>
@@ -75,14 +75,26 @@
             <table style="width: 100%;" id="table">
             
             </table>
+            <div id="offers">
+
+            </div>
         </div>
         <div id="statistics">
-
+            <table style="width: 100%;">
+                <tr>
+                    <th>ID</th>
+                    <th>CLIENT NAME</th>
+                    <th>AMOUNT</th>
+                    <th>MONTLY PAYMENT</th>
+                    <th>STATUS</th>
+                </tr>
+            </table>
         </div>
     </main>
 
     <footer>&copy; NIKOLA SIRAKOV 2023</footer>
 
+    <script src="./model/StatisticsManager.js"></script>
     <script src="./model/ApplicationManager.js"></script>
     <script src="./model/PopUpManager.js"></script>
     <script src="./model/UserManager.js"></script>
