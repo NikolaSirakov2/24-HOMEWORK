@@ -28,7 +28,10 @@ class UserManager {
       console.log(this.logedUser[0]);
       if (this.logedUser[0].name !== "Admin"){
       window.location.hash = "home";
-      return true;
+        return true;
+      } else if (this.logedUser[0].name === "Admin"){
+        window.location.hash = "statistics";
+        return true;
       }
     } else {
         let loginButton = document.getElementById("loginButt");
