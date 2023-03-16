@@ -15,10 +15,11 @@ class ViewController {
         let pageIds = ["home", "user", "applications", "statistics"];
 
         
+        
             if(hash === "home"){
                 if(this.userManager.logedUser === null){
                     location.hash = "user";   
-                } else if(this.userManager.logedUser[0].name === "Admin"){
+                } else if(this.userManager.logedUser.name === "Admin"){
                     location.hash = "statistics";
                 }
             }
@@ -127,12 +128,13 @@ class ViewController {
     }
 
     renderApplicationOverview = () => {
+       
         let allAplications = JSON.parse(localStorage.applicationsList);
         let table = document.getElementById("table");
         table.innerHTML = "";
-        console.log(allAplications.length);
+        
 
-        allAplications.forEach(application => {
+        for(let i = 1; i <= allAplications.length; i++){
         
             let newRow = document.createElement('tr')
                
@@ -140,24 +142,65 @@ class ViewController {
                 let requested = document.createElement('td');
                 let period = document.createElement('td');
                 let status = document.createElement('td');
-                let cancel = document.createElement('td')
+                let cancelButton = document.createElement('button');
+                let viewOffersButton = document.createElement("button");
     
-                id.innerText = allAplications.length;
-                id.style.width = "4%"
-                requested.innerText = `${application.amount} $`;
-                requested.style.width = "28%"
-                period.innerText = `${application.period} months`;
-                period.style.width = "24%"
+                id.innerText = i;
+                id.style.width = "5.2vw"
+                requested.innerText = `${allAplications[i-1].amount} `;
+                requested.style.width = "37.3vw"
+                period.innerText = `${allAplications[i-1].period} months`;
+                period.style.width = "31.8vw"
                 status.innerText = "Pending";
-                status.style.width = "9%"
-                cancel.innerText = "Cancel!";
-                cancel.style.width = "10%";
+                status.style.width = "12vw";
+
+                cancelButton.innerText = "Cancel!";
+                cancelButton.style.width = "13.5vw";
+                cancelButton.id = "cancelButton"
+                cancelButton.addEventListener("click", (e) => {
+                    status.innerText = "Rejected";
+                });
+
+                viewOffersButton.innerText = "View Offers!";
+                viewOffersButton.style.width = "13.5vw";
+                viewOffersButton.id = "viewOffersButton"
+                viewOffersButton.addEventListener("click", (e) => {
+                    status.innerText = "Approved";
+                    let offers = document.getElementById("offers");
+                            offers.innerHTML = "";
+                    let offersNumber = Math.floor(Math.random()*3);
+                    console.log(offersNumber);
+                        for(let k = 0; k < (offersNumber + 1); k++){
+                            
+                            let offer = document.createElement('div');
+                            offer.id = "offerCard";
+
+                            let interestRate = createElement("div");
+                            let loanAmount = createElement("div");
+                            let monthlyPayment = createElement("div");
+                            let loanTerm = createElement("div");
+
+                            interestRate.innerText = `High Interest`;
+                            loanAmount.innerText = '1000 $';
+                            monthlyPayment.innerText = '85 $';
+                            loanTerm.innerText = '12 months';
+
+                            offer.append(interestRate, loanAmount, monthlyPayment, loanTerm);
+                            offers.appendChild(offer);
+                        }
+                });
+
+                const myTimeout = setTimeout(ViewOffers, 6000);
+
+                function ViewOffers() {
+                    cancelButton.parentElement.removeChild(cancelButton);
+                    newRow.appendChild(viewOffersButton);
+                }
                 
-    
-                newRow.append(id, requested, period, status, cancel);
+                newRow.append(id, requested, period, status, cancelButton);
     
                 table.appendChild(newRow);
-            })  
+            }
         
         
     }
