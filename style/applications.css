@@ -23,3 +23,14 @@ table, th, td {
     background-color: rgb(183, 195, 206);
     text-align: center;
   }
+
+  #offerCard{
+    background-color: bisque;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100px;
+    margin: 20px;
+  }
+
+  
