@@ -12,7 +12,7 @@ class UserManager {
     }
   }
 
-  usersList = [new User("Admin", "adminPass")] || JSON.parse(localStorage.getItem("usersList"));
+  usersList = JSON.parse(localStorage.getItem("usersList")) || [new User("Admin", "adminPass")] ;
   logedUser = null;
 
   logIn = (name, pass) => {
