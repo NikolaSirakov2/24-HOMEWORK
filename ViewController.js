@@ -41,7 +41,7 @@ class ViewController {
                 this.renderUserPage();
                 break;
             case 'applications':
-                this.renderapplicationOverview();
+                this.renderApplicationOverview();
                 break; 
         }
     }
@@ -89,8 +89,7 @@ class ViewController {
     renderHomePage = () => {
 
         let logedUser = JSON.parse(localStorage.getItem("loged"));
-        let headerUserSign = document.getElementById("userLink");
-        headerUserSign.innerText = logedUser[0].name;
+        
         let clientName = document.getElementById('borrowerName');
         clientName.placeholder = logedUser[0].name
 
@@ -117,7 +116,7 @@ class ViewController {
         }
     }
 
-    renderapplicationOverview = () => {
+    renderApplicationOverview = () => {
         let allAplications = JSON.parse(localStorage.applicationsList);
         let table = document.getElementById("table");
         table.innerHTML = "";
@@ -136,11 +135,11 @@ class ViewController {
                 id.innerText = allAplications.length;
                 id.style.width = "4%"
                 requested.innerText = `${application.amount} $`;
-                requested.style.width = "29%"
+                requested.style.width = "28%"
                 period.innerText = `${application.period} months`;
                 period.style.width = "24%"
                 status.innerText = "Pending";
-                status.style.width = "10%"
+                status.style.width = "9%"
                 cancel.innerText = "Cancel!";
                 cancel.style.width = "10%";
                 
