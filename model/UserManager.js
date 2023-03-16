@@ -12,7 +12,7 @@ class UserManager {
     }
   }
 
-  usersList = JSON.parse(localStorage.getItem("usersList")) || [];
+  usersList = [new User("Admin", "adminPass")] || JSON.parse(localStorage.getItem("usersList"));
   logedUser = null;
 
   logIn = (name, pass) => {
@@ -22,11 +22,14 @@ class UserManager {
 
     if (existingUser.length > 0) {
       this.logedUser = existingUser;
-     
+      let headerUserSign = document.getElementById("userLink");
+      headerUserSign.innerText = this.logedUser[0].name;
       localStorage.setItem("loged", JSON.stringify(this.logedUser));
-      console.log(window.location.hash);
+      console.log(this.logedUser[0]);
+      if (this.logedUser[0].name !== "Admin"){
       window.location.hash = "home";
       return true;
+      }
     } else {
         let loginButton = document.getElementById("loginButt");
         let popup = document.getElementById("loginPopUp");
