@@ -12,17 +12,24 @@ class ViewController {
 
         let hash = window.location.hash.slice(1) || "home";
 
-        let pageIds = ["home", "user", "applications"];
+        let pageIds = ["home", "user", "applications", "statistics"];
 
         
             if(hash === "home"){
                 if(this.userManager.logedUser === null){
-                    location.hash = "user";
-                    console.log(hash);
+                    location.hash = "user";   
+                } else if(this.userManager.logedUser[0].name === "Admin"){
+                    location.hash = "statistics";
+                }
+            }
+
+            if(hash === "statistics"){
+                if(this.userManager.logedUser[0].name !== "Admin"){
+                    location.hash = "home";
                 }
             }
         
-        ;
+        
         pageIds.forEach(id => {
             let page = document.getElementById(id);
 
@@ -42,7 +49,10 @@ class ViewController {
                 break;
             case 'applications':
                 this.renderApplicationOverview();
-                break; 
+                break;
+            case 'statistics':
+                this.renderLoanStatistics();
+                break;     
         }
     }
 
@@ -150,6 +160,10 @@ class ViewController {
             })  
         
         
+    }
+
+    renderLoanStatistics = () => {
+
     }
 }
 
