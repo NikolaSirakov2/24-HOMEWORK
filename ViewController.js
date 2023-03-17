@@ -184,11 +184,15 @@ class ViewController {
                             let loanTerm = createElement("div");
                             let takeOfferButton = createElement("button");
 
-                            interestRate.innerText = `High Interest`;
+                            interestRate.innerText = `${8 + k}%`;
                             loanAmount.innerText = '1000 $';
                             monthlyPayment.innerText = '85 $';
                             loanTerm.innerText = '12 months';
                             takeOfferButton.innerText = "Take offer";
+                            takeOfferButton.addEventListener('click', () => {
+                                this.statisticsManager.createLoan(1, 'first', 1000, 8, 6);
+                                offer.style.display = "none";
+                            })
 
                             offer.append(interestRate, loanAmount, monthlyPayment, loanTerm, takeOfferButton);
                             offers.appendChild(offer);
