@@ -6,7 +6,7 @@ class Loan {
         this.rate = rate,
         this.period = period,
         this.totalAmount = amount + ((amount*rate)/100);
-        this.montlyPayment = totalAmount/period;
+        this.montlyPayment = (amount/period).toFixed(2);
     }
 }
 
