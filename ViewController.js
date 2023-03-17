@@ -5,6 +5,7 @@ class ViewController {
     
         this.userManager = new UserManager();
         this.applicationManager = new ApplicationManager();
+        this.statisticsManager = new StatisticsManager();
     }
 
     handleHashChange = () => {
@@ -101,8 +102,10 @@ class ViewController {
 
         let logedUser = JSON.parse(localStorage.getItem("loged"));
         
+        if(logedUser.length > 0){
         let clientName = document.getElementById('borrowerName');
         clientName.placeholder = logedUser[0].name
+        }
 
         let applicationForm = document.getElementById('applicationForm');
         
@@ -179,20 +182,22 @@ class ViewController {
                             let loanAmount = createElement("div");
                             let monthlyPayment = createElement("div");
                             let loanTerm = createElement("div");
+                            let takeOfferButton = createElement("button");
 
                             interestRate.innerText = `High Interest`;
                             loanAmount.innerText = '1000 $';
                             monthlyPayment.innerText = '85 $';
                             loanTerm.innerText = '12 months';
+                            takeOfferButton.innerText = "Take offer";
 
-                            offer.append(interestRate, loanAmount, monthlyPayment, loanTerm);
+                            offer.append(interestRate, loanAmount, monthlyPayment, loanTerm, takeOfferButton);
                             offers.appendChild(offer);
                         }
                 });
 
-                const myTimeout = setTimeout(ViewOffers, 6000);
+                const myTimeout = setTimeout(viewOffers, 6000);
 
-                function ViewOffers() {
+                function viewOffers() {
                     cancelButton.parentElement.removeChild(cancelButton);
                     newRow.appendChild(viewOffersButton);
                 }
@@ -206,7 +211,9 @@ class ViewController {
     }
 
     renderLoanStatistics = () => {
-
+        console.log("TEST");
+        // let allLoans = JSON.parse(localStorage.allLoansList);
+        // console.log(allLoans);
     }
 }
 
