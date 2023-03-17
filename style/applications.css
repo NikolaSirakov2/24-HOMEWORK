@@ -29,8 +29,11 @@ table, th, td {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 100px;
+    width: 200px;
     margin: 20px;
   }
 
-  
+  #offerCard button {
+    height: 20px;
+    background-color: tomato;
+  }
