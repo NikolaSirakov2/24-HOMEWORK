@@ -1,0 +1,17 @@
+body {
+    background-color: bisque;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+#container {
+    position: relative;
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
