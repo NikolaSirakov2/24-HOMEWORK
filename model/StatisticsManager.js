@@ -1,12 +1,11 @@
 class Loan {
-    constructor(id, name, amount, rate, period, totalAmount, montlyPayment){
+    constructor(id, name, amount, rate, period, totalAmount){
         this.id = id,
         this.name = name,
         this.amount = amount,
         this.rate = rate,
-        this.period = period,
-        this.totalAmount = amount + ((amount*rate)/100);
-        this.montlyPayment = (amount/period).toFixed(2);
+        this.period = Number(period),
+        this.totalAmount = Number(amount) + Number((amount*rate)/100);
     }
 }
 

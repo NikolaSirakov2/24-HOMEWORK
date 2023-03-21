@@ -1,6 +1,7 @@
 class Application {
-    constructor(name, income, amount, period){
+    constructor(id, name, income, amount, period){
         
+        this.id = id;
         this.name = name,
         this.income = income,
         this.amount = amount,
@@ -12,8 +13,8 @@ class ApplicationManager {
 
     applicationsList = JSON.parse(localStorage.getItem("applicationsList")) || [];
 
-    createApplication = (name, income, amount, period) => {
-        this.applicationsList.push(new Application(name, income, amount, period));
+    createApplication = (id, name, income, amount, period) => {
+        this.applicationsList.push(new Application(id, name, income, amount, period));
         localStorage.setItem("applicationsList", JSON.stringify(this.applicationsList))
     }
 

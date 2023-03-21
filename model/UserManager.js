@@ -25,7 +25,7 @@ class UserManager {
       let headerUserSign = document.getElementById("userLink");
       headerUserSign.innerText = this.logedUser[0].name;
       localStorage.setItem("loged", JSON.stringify(this.logedUser));
-      console.log(this.logedUser[0]);
+      
       if (this.logedUser[0].name !== "Admin"){
       window.location.hash = "home";
         return true;
@@ -58,6 +58,8 @@ class UserManager {
     if (existingUser.length === 0 && pass === confirm) {
       this.usersList.push(new User(name, pass));
       localStorage.setItem("usersList", JSON.stringify(this.usersList));
+      let successful = document.getElementById("successfulCreate");
+      successful.style.display = "flex";
     } else {
       openRegPopUp = () => {
         registrationPopUp.style.display = "inline-block";

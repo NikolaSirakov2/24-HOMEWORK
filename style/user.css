@@ -55,3 +55,11 @@ input {
    color: antiquewhite;
    cursor: pointer;
 }
+
+#successfulCreate {
+    background-color: rgb(243, 228, 214);
+    height: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}

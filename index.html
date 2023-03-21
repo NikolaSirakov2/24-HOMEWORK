@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="./style/applications.css">
     <link rel="stylesheet" href="./style/statistics.css">
     <script src="./utils/createElemet.js"></script>
+    <script src="./utils/newRequest.js"></script>
     
     
   </head>
@@ -55,6 +56,7 @@
                       <input name="pass" type="password" placeholder="password" required>
                       <input name="confirm" type="password" placeholder="confirm password" required>
                       <input type="submit" value="Register" id="registerButt">
+                      <div id="successfulCreate">YOUR REGISTRATION IS COMPLETE!</div>
                   </form>
                   <div class="popUp" id="registrationPopUp">
                       <h2 id="regPopUp">THIS USER NAME IS ALREADY TAKEN</h2>
@@ -87,9 +89,12 @@
                     <th>AMOUNT</th>
                     <th>RATE</th>
                     <th>PERIOD</th>
-                    <th>TOTAL AMOUNT</th>
                     <th>MONTLY PAYMENT</th>
+                    <th>TOTAL AMOUNT</th>
                 </tr>
+                <table style="width: 100%;" id="loansTable">
+            
+                </table>
             </table>
         </div>
     </main>
